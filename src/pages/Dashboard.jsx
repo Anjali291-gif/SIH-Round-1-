@@ -1,9 +1,10 @@
-﻿import React from "react";
+import React from "react";
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
 } from "recharts";
 import { fetchSensorHistory } from "../api/client";
 import { useState, useEffect } from "react";
+import uavTwinImg from "../assets/uav-digital-twin.png";
 
 const archSteps = [
   { icon: "⚙️", label: "Physical Engine" },
@@ -136,21 +137,17 @@ export default function Dashboard({ setPage, hasFault, liveData, wsConnected }) 
             {dataTag}
           </div>
           <div className="twin-visual">
-            <svg width="220" height="120" viewBox="0 0 220 120">
-              <rect x="30" y="40" width="160" height="50" rx="8" fill="#e8f0fb" stroke="#4a9edd" strokeWidth="2"/>
-              {[0,1,2,3].map(i => (
-                <g key={i}>
-                  <rect x={50+i*32} y="18" width="20" height="28" rx="4" fill="#c8d8f0" stroke="#4a9edd" strokeWidth="1.5"/>
-                  <circle cx={60+i*32} cy="20" r="4" fill={hasFault && i===2 ? "#f59e0b" : "#1cb86a"}/>
-                </g>
-              ))}
-              <rect x="170" y="55" width="28" height="12" rx="4" fill="#b8cce8" stroke="#4a9edd" strokeWidth="1.5"/>
-              <circle cx="28" cy="65" r="12" fill="#e8f0fb" stroke="#4a9edd" strokeWidth="2"/>
-              <circle cx="28" cy="65" r="5" fill="#4a9edd"/>
-              <text x="110" y="108" textAnchor="middle" fontSize="10" fill="#5a6f8a" fontFamily="inherit" fontWeight="600">
-                UAV AERO-PISTON ENGINE
-              </text>
-            </svg>
+            <div className="twin-model-badge">
+              <span className={`dot ${hasFault ? "dot-orange" : "dot-green"}`}></span>
+              TAPAS MALE-201 AIRFRAME & DIGITAL TWIN
+            </div>
+            <div className="twin-image-wrap">
+              <img
+                src={uavTwinImg}
+                alt="TAPAS MALE-201 Airframe & Digital Twin"
+                className="twin-uav-img"
+              />
+            </div>
             <div className="sensor-indicators">
               {sensors.map(s => (
                 <div className="sensor-pill" key={s.id}>
@@ -161,6 +158,7 @@ export default function Dashboard({ setPage, hasFault, liveData, wsConnected }) 
             </div>
           </div>
         </div>
+
 
         <div className="card">
           <div className="section-header">

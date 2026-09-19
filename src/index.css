@@ -145,3 +145,37 @@ input[type=range] { width:100%; accent-color: var(--navy); height: 4px; cursor: 
   border: 1px solid #6ee7b7;
   color: #047857;
 }
+
+/* UAV Digital Twin Image Styles */
+.twin-image-wrap {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 0;
+}
+.twin-uav-img {
+  max-width: 100%;
+  max-height: 180px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 18px rgba(0, 180, 216, 0.2));
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.twin-uav-img:hover {
+  transform: scale(1.02);
+}
+.twin-model-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  color: var(--navy);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--border);
+  padding: 3px 12px;
+  border-radius: 20px;
+  margin-bottom: 6px;
+}

@@ -128,3 +128,20 @@ input[type=range] { width:100%; accent-color: var(--navy); height: 4px; cursor: 
 .hero-sub { font-size:14px; color:#9dbfe8; max-width:560px; line-height:1.6; }
 .hero-badge-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:6px; }
 .hero-badge { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); color:#fff; font-size:11px; font-weight:600; padding:4px 12px; border-radius:20px; letter-spacing:.3px; }
+
+/* Live connection indicators */
+.status-badge.live {
+  background: rgba(28, 184, 106, 0.2);
+  border: 1px solid rgba(28, 184, 106, 0.5);
+  color: #34d399;
+}
+.status-dot.live-dot {
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: pulse-dot 1.2s infinite;
+}
+.sim-tag.live-tag {
+  background: #ecfdf5;
+  border: 1px solid #6ee7b7;
+  color: #047857;
+}
